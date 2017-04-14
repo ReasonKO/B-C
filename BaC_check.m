@@ -1,0 +1,23 @@
+function Array=BaC_check(Array,N,B,K)
+for A=1000:9999
+    if Array(A,5)==1
+        A1=mod(floor(A/1000),10);
+        A2=mod(floor(A/100),10);
+        A3=mod(floor(A/10),10);
+        A4=mod(A,10);    
+
+        N1=mod(floor(N/1000),10);
+        N2=mod(floor(N/100),10);
+        N3=mod(floor(N/10),10);
+        N4=mod(N,10);    
+
+        K_=(A1==N2)+(A1==N3)+(A1==N4)+...
+           (A2==N1)+(A2==N3)+(A2==N4)+...
+           (A3==N1)+(A3==N2)+(A3==N4)+...
+           (A4==N1)+(A4==N2)+(A4==N3);
+        B_=(A1==N1)+(A2==N2)+(A3==N3)+(A4==N4);
+
+        Array(A,5)=and(B_==B,K_==K);
+    end
+end
+end
