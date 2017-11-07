@@ -10,6 +10,8 @@ for j=1:4
     P(i,j)=sum(Array(Array(:,j)==mod(i,10),5));
 end
 end
+%fprintf('olololo000');
+%P
 
 Ps=P/S;
 Psout=Ps;

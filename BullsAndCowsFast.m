@@ -1,32 +1,16 @@
-function out=BullsAndCows(Questions)
-
+function [out,sm]=BullsAndCows(Questions)
+global Array_init BC
  
 
 %Questions
-Qln=size(Questions,1);
-
 
 %% Компановка массива вариантов
-Array=zeros(9999,5);
-
-for i=1000:9999
-    Array(i,1)=mod(floor(i/1000),10);
-    Array(i,2)=mod(floor(i/100),10);
-    Array(i,3)=mod(floor(i/10),10);
-    Array(i,4)=mod(i,10);
-    if Array(i,1)~=Array(i,2) &&...
-       Array(i,1)~=Array(i,3) &&...
-       Array(i,1)~=Array(i,4) &&...
-       Array(i,2)~=Array(i,3) &&...
-       Array(i,2)~=Array(i,4) &&...
-       Array(i,3)~=Array(i,4)
-        Array(i,5)=1;
-    end
-end
+Array=Array_init;
 
 for i=1:size(Questions,1)
-    Array=BaC_check(Array,Questions(i,1),Questions(i,2),Questions(i,3));
+    Array=BaC_check_fast(Array,Questions(i,1),Questions(i,2),Questions(i,3),BC);
 end
+sm=sum(Array(:,5)==1);
 
 %% Выборка лучшего предложения
 ArrayIN=Array;
@@ -63,6 +47,8 @@ else
     temp=Array(Array(:,5)==1,1:4);
     OUT=temp(1,:);
 end
+
+
 
 
 if isempty(OUT)
