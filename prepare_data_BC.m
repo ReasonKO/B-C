@@ -2,7 +2,7 @@
 % close all
 % clc
 
-GENERATE_ANSWERS=0;
+GENERATE_ANSWERS=1;
 GENERATE_BC=0;
 GENERATE_Array=0;
 
