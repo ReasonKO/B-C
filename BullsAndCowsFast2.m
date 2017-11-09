@@ -9,12 +9,12 @@ DEBUG=0;
 if DEBUG
     Questions
 end
-% 
+%
 % Questions =...
 %  [       1234           0           3
 %         2145           2           0
 %         2346           1           1];
-%     
+%
  if size(Questions,1)==1
      fast_answer=FAST_ANSWERS(Questions(2)+1,Questions(3)+1);
      if ~isnan(fast_answer) && fast_answer>0
@@ -26,7 +26,7 @@ end
 %     if Question(1)==1234 && Question(2)=0
  end
     
-    
+%     
     
 Array=Array_init;
 
@@ -59,6 +59,7 @@ end
 
 sz=length(ArrayI);
 S=zeros(sz,sz);
+sm=sz;
 sz;
 BC_min=BC(ArrayI,ArrayI);
 
@@ -69,7 +70,7 @@ for i=1:sz
         V(i,BC_min(i,j)+1)=V(i,BC_min(i,j)+1)+1;  
     end    
 end
-K=sum((V.^2)');
+K=sum(((V).*V)');
 if DEBUG
 V
 V.^2
@@ -103,7 +104,8 @@ SSum=sum(log(S));
 %%% NEED ki^2/N
 %[~,ansIND]=min(sum(S)./sum(V')); %ALTERNATIVE LAW 2
 %[~,ansIND]=min(SSum); %ALTERNATIVE LAW
-[~,ansIND]=min(K);
+[~,ansIND]=min(K); %OPTIMAL
+%[~,ansIND]=min(max(V'));
 %[~,ansIND]=min(sum(S));
 %ansIND
 ansIND;
@@ -132,4 +134,3 @@ end
 % S_log=log(S)/log(5)
 % [v,ind]=min(sum(S_log'))
 % Arrayout(ind)
-sm=1;

@@ -6,11 +6,13 @@ GENERATE_ANSWERS=1;
 GENERATE_BC=0;
 GENERATE_Array=0;
 
-global BC
-if GENERATE_BC
+global BC FAST_ANSWERS Array_init
     BC=zeros(9999,9999);
+    FAST_ANSWERS=zeros(5,5);
+    Array_init=zeros(9999,5);
+    
+if GENERATE_BC
     for i=1:9999
-        i
         if I(i)
             for j=i:9999
                 if I(j)
@@ -26,26 +28,7 @@ else
     load('BC');
 end
 
-global FAST_ANSWERS
-if GENERATE_ANSWERS
-FAST_ANSWERS=zeros(5,5);
-for i=0:4
-    for j=0:4
-        Questions =[      1234           i           j  ];
-        if FAST_ANSWERS(i+1,j+1)==0
-                FAST_ANSWERS(i+1,j+1)=BullsAndCowsFast2(Questions);
-        end
-    end
-end
-    save('FAST_ANSWERS','FAST_ANSWERS');
-else
-     load('FAST_ANSWERS');
-end
-
-
-global Array_init
 if GENERATE_Array
-    Array_init=zeros(9999,5);
     for i=1000:9999
         Array_init(i,1)=mod(floor(i/1000),10);
         Array_init(i,2)=mod(floor(i/100),10);
@@ -64,3 +47,18 @@ if GENERATE_Array
 else
     load('Array_init');
 end
+
+if GENERATE_ANSWERS
+for i=0:4
+    for j=0:4         
+        Questions =[      1234           i           j  ];
+        if FAST_ANSWERS(i+1,j+1)==0
+                FAST_ANSWERS(i+1,j+1)=BullsAndCowsFast2(Questions);
+        end
+    end
+end
+    save('FAST_ANSWERS','FAST_ANSWERS');
+else
+    load('FAST_ANSWERS');
+end
+

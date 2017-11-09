@@ -1,17 +1,15 @@
-clc
-clear all
+% clc
+% clear all
 %prepare_data_BC
 DEBUG=1;
 load('BC')
 global BC
 %Questions=BaC_checkin(3951,1234)
  Questions= [...
-         1234           0           2
-         5410           0           2
-         3025           1           1
-         2061           1           0];
+        1234           1           1
+        1023           1           1]
 [out]=BullsAndCowsFast2(Questions)
-        BaC_checkin(3951,out)
+        BaC_checkin(1025,out)
     return
 
 

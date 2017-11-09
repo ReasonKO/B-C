@@ -1,0 +1,17 @@
+%IND=
+
+getI=@(b,c)c+b*5+1;
+A=zeros(25,1)
+
+for B=0:4
+for C=0:4
+    if ~isnan(FAST_ANSWERS(B+1,C+1))        
+        A(getI(B,C))=FAST_ANSWERS(B+1,C+1)
+    end
+end
+end
+
+
+
+A
+FAST_ANSWERS
