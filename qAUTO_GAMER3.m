@@ -24,7 +24,7 @@ GAME_LN=zeros(1,4536);%4536
 GAME_LN_Q=zeros(size(GAME_LN,2),4);
 IND=1:9999; aAnswers=IND(Array_init(:,5)==1);     
 fprintf('\n--- START AUTO GAMER 2 N=%d\n',size(GAME_LN,2));
-load('ETALON');
+load('ETALON3');
 sr_etalon=0;
 for gameN=1:size(GAME_LN,2)
     %fprintf('\n--------------- NEW GAME %d / %d----------------------\n',gameN,size(GAME_LN,2));
@@ -76,6 +76,13 @@ gameN
 MEDIANNAYA_IGRA=sg(floor(gameN/2))
 SREDNYAYA_IGRA=sum(GAME_LN)/gameN
 ETALON_SR=sr_etalon/gameN
+clear ETALON
+% ETALON.GAME_LN=GAME_LN;
+% ETALON.GAME_LN_Q=GAME_LN_Q;
+% ETALON.SREDNYAYA_IGRA=SREDNYAYA_IGRA;
+% ETALON.MEDIANNAYA_IGRA=MEDIANNAYA_IGRA;
+
+%save('ETALON3','ETALON');
 % toc()
 % fprintf('\n--- Srednee vremya t=%6.4f\n',toc()/size(GAME_LN,2));
 % 
@@ -91,10 +98,9 @@ ETALON_SR=sr_etalon/gameN
 % 
 % 
 % SREDNYAYA_IGRA =
-% 
-% SREDNYAYA_IGRA =
-% 
-%     5.3999
+%    Obshii poisk 
+%         SREDNYAYA_IGRA: 5.1766 v^2+1*(1-I)
+%           5.1634 FULL  K=sum((log(max(1,V)).*V)'); [~,ansIND]=min(K+1*(1-Array(aAnswers,5)'));
 
 % 
 % Elapsed time is 35.424602 seconds.

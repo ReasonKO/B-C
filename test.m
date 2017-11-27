@@ -5,10 +5,11 @@ DEBUG=1;
 load('BC')
 global BC
 %Questions=BaC_checkin(3951,1234)
- Questions= [...
-        1234           1           1
-        1023           1           1]
-[out]=BullsAndCowsFast2(Questions)
+%  Questions= [...
+%         1234          3           0
+%         1235           3           0]
+Questions=[BaC_checkin(1239,1234);BaC_checkin(1239,1235)]
+[out,sz]=BullsAndCowsFast3(Questions)
         BaC_checkin(1025,out)
     return
 

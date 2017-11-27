@@ -9,24 +9,16 @@ DEBUG=0;
 if DEBUG
     Questions
 end
-% 
-% Questions =...
-%  [       1234           0           3
-%         2145           2           0
-%         2346           1           1];
-%     
- if size(Questions,1)==1
+
+
+if size(Questions,1)==1
      fast_answer=FAST_ANSWERS(Questions(2)+1,Questions(3)+1);
      if ~isnan(fast_answer) && fast_answer>0
          sz=1000;
          out=fast_answer;
          return
      end
-     %%FAST ANSWER 
-%     if Question(1)==1234 && Question(2)=0
- end
-    
-%     
+end
     
 Array=Array_init;
 ArrayF=Array_init;

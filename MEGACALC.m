@@ -1,9 +1,14 @@
-%IND=
+clc
+clear all
+prepare_data_BC
+
+IND=1:9999; aAnswers=IND(Array_init(:,5)==1);     
 
 getI=@(b,c)c+b*5+1;
 getIbc=@(bc)getI(floor(bc/10),mod(bc,10));
 A=zeros(25,1)
 Am=zeros(41,1);
+
 % for B=0:4
 % for C=0:4
 %     if ~isnan(FAST_ANSWERS(B+1,C+1))        
@@ -24,5 +29,21 @@ for i=1:4536
     end
 end
 
-Am/4536
+round(Am/4536)
 FAST_ANSWERS
+
+for i=1:41
+%X(
+end
+
+X=InDo(4536,1)
+S=insum(X)
+S/4536
+
+
+
+myAns=[aAnswers(randi(4536));
+    aAnswers(randi(4536));
+    aAnswers(randi(4536));
+    aAnswers(randi(4536));
+    aAnswers(randi(4536));]
